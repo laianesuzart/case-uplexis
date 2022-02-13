@@ -9,9 +9,6 @@ $themes: (
   ),
 );
 
-$highlight-color: #f6864c;
-$border-radius: 0.5rem;
-
 @mixin theme($key, $color) {
   @each $theme-name, $theme-color in $themes {
     .theme-#{$theme-name} & {
@@ -60,5 +57,9 @@ button {
 
 a {
   font-family: "Open Sans", sans-serif;
-  @include theme("color", "color-text");
+}
+
+.full-container {
+  max-width: 72.5rem;
+  margin: 0 auto;
 }

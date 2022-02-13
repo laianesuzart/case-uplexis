@@ -1,0 +1,49 @@
+@import "../variables";
+
+.card {
+  border-radius: $border-radius;
+  padding-top: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card__title {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.8;
+
+  svg {
+    color: $highlight-color;
+    font-size: 1.5rem;
+  }
+}
+
+.card__description {
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.4;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.card__details {
+  background-color: $highlight-color;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  border-radius: 0 0 $border-radius $border-radius;
+
+  a {
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    max-width: 16.25rem;
+    height: 18.75rem;
+  }
+}
