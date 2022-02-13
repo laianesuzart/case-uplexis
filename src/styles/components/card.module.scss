@@ -28,7 +28,7 @@
 }
 
 .card__details {
-  background-color: $highlight-color;
+  background-image: linear-gradient(90deg, #fab794, $highlight-color 30%);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -38,6 +38,25 @@
   a {
     color: #fff;
     font-weight: 700;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 0.025rem;
+      background-color: #fff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover::before,
+    &:focus::before {
+      transform: scaleX(1);
+    }
   }
 }
 
