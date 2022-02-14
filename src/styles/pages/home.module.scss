@@ -6,6 +6,21 @@
   padding: 2rem 1rem;
 }
 
+.wrapper {
+  padding: 1rem;
+
+  label {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+
+  select {
+    width: 10rem;
+    padding: 0.2rem;
+  }
+}
+
 @media (min-width: 1200px) {
   .container {
     justify-content: space-between;
