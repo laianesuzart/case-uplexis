@@ -1,13 +1,48 @@
+@import "../variables";
+
 .container {
+  padding: 1rem 1rem 0;
+}
+
+.toogleButton {
+  border: 1px solid $highlight-color;
+  border-radius: calc($border-radius / 2);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.filterList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 2rem 1rem;
+  padding-top: 1rem;
+  gap: 0.5rem;
+}
+
+.filter__button {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  background-color: #f8f8f8;
+  padding: 0.2rem;
+  border-radius: calc($border-radius / 2);
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0.25rem 0 $highlight-color;
+  }
+}
+
+button.active {
+  background-color: $highlight-color;
+  color: #fff;
 }
 
 .wrapper {
-  padding: 1rem;
+  padding-top: 1rem;
 
   label {
     text-transform: uppercase;
@@ -21,8 +56,35 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .container {
-    justify-content: space-between;
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .toogleButton {
+    display: none;
+  }
+
+  .filterList {
+    padding-top: 0;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .filter__button {
+    flex-direction: column;
+    justify-content: center;
+    width: 7rem;
+    height: 4rem;
+    border-radius: 0;
+    border-right: 0.5px solid #ebe7e7;
+
+    svg {
+      font-size: 1.2rem;
+    }
   }
 }
