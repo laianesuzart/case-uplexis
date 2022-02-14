@@ -10,6 +10,7 @@ import { Card } from "../../components/card";
 export function Home() {
   const [displayedApps, setDisplayedApps] = useState(apps);
   const [isVisible, setIsVisible] = useState(false);
+  const [orderByPrice, setOrderByPrice] = useState(false);
   const [activeCategory, setActiveCategory] = useState("Todos");
 
   const isNotMobile = useMediaQuery({ query: "(min-width: 768px)" });
@@ -27,7 +28,15 @@ export function Home() {
   ];
 
   function filterList(category: string) {
-    const filteredApps = apps.filter((app, index) => app.category === category);
+    let filteredApps = apps;
+    if (category !== "Todos") {
+      filteredApps = apps.filter((app, index) => app.category === category);
+    }
+    if (orderByPrice) {
+      filteredApps.sort((a, b) => (a.price < b.price ? -1 : 1));
+    } else {
+      filteredApps.sort((a, b) => (a.id < b.id ? -1 : 1));
+    }
     setActiveCategory(category);
     setDisplayedApps(filteredApps);
   }
@@ -38,11 +47,13 @@ export function Home() {
         a.price < b.price ? -1 : 1
       );
       setDisplayedApps(sortedApps);
+      setOrderByPrice(true);
     } else {
       const sortedApps = [...displayedApps].sort((a, b) =>
         a.id < b.id ? -1 : 1
       );
       setDisplayedApps(sortedApps);
+      setOrderByPrice(false);
     }
   }
 
@@ -63,10 +74,7 @@ export function Home() {
                   className={`${styles.filter__button} ${
                     activeCategory === "Todos" && styles.active
                   }`}
-                  onClick={() => {
-                    setDisplayedApps(apps);
-                    setActiveCategory("Todos");
-                  }}
+                  onClick={() => filterList("Todos")}
                 >
                   <FaGlobe /> <span>Todos</span>
                 </button>
