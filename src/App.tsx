@@ -5,6 +5,7 @@ import { Banner } from "./components/banner";
 import { SwitchTheme } from "./components/switchTheme";
 import { Router } from "./routes";
 import "./styles/global.scss";
+import "react-multi-carousel/lib/styles.css";
 
 function App() {
   return (

@@ -1,0 +1,77 @@
+@import "../variables";
+
+.container {
+  padding: 2rem;
+  max-width: 62.5rem;
+  margin: 0 auto;
+}
+
+.app__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+
+  h1,
+  svg {
+    font-size: 1rem;
+    color: $highlight-color;
+
+    @media (min-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  a {
+    line-height: 0;
+    transition: filter 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      filter: brightness(0.6);
+    }
+  }
+}
+
+.app__image {
+  filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.2));
+}
+
+.app__description {
+  margin: 2rem 0;
+}
+
+.app__details {
+  display: flex;
+  align-items: center;
+
+  span {
+    font-size: 1.5rem;
+
+    @media (min-width: 1200px) {
+      font-size: 2rem;
+    }
+
+    &::before {
+      content: "R$ ";
+      font-size: 0.8rem;
+    }
+  }
+
+  .app__button {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: $highlight-color;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: calc($border-radius / 2);
+    margin-left: 1.5rem;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:focus,
+    &:hover {
+      box-shadow: 0 0 0.5rem 0 $highlight-color;
+    }
+  }
+}

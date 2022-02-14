@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { useDetailsContext } from "../context/details";
 import "../styles/components/banner.scss";
 import logo from "../assets/img/upminer.png";
