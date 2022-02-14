@@ -45,6 +45,7 @@ body {
   @include theme("background-color", "color-background");
   @include theme("color", "color-text");
   font-family: "Open Sans", sans-serif;
+  transition: color, background 0.3s ease-in-out;
 }
 
 button {

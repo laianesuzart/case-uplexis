@@ -1,0 +1,23 @@
+.container {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 1.2rem;
+  right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8f8a8;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1.5rem;
+
+  svg {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}

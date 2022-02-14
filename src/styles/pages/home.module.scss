@@ -21,10 +21,11 @@
   gap: 0.5rem;
 }
 
-.filter__button {
+button.filter__button {
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  color: #4f586d;
   background-color: #f8f8f8;
   padding: 0.2rem;
   border-radius: calc($border-radius / 2);
@@ -75,7 +76,7 @@ button.active {
     justify-content: center;
   }
 
-  .filter__button {
+  button.filter__button {
     flex-direction: column;
     justify-content: center;
     width: 7rem;
