@@ -1,0 +1,100 @@
+@import "../variables";
+
+.banner {
+  border-bottom: 0.25rem solid $highlight-color;
+  padding: 2rem;
+  color: #fff;
+}
+
+.banner--green {
+  background-color: #1e3a45;
+}
+
+.banner--gray {
+  background-color: #21242a;
+}
+
+.banner__title {
+  img {
+    object-fit: contain;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.banner__description {
+  padding: 1rem 0;
+  max-width: 33.75rem;
+}
+
+.banner__details {
+  display: flex;
+  align-items: center;
+
+  span {
+    font-size: 1.5rem;
+
+    &::before {
+      content: "R$ ";
+      font-size: 0.8rem;
+    }
+  }
+
+  a {
+    color: #fff;
+    font-weight: 700;
+    background-color: $highlight-color;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: calc($border-radius / 2);
+    margin-left: 0.5rem;
+    transition: border, background 0.3s ease-in-out;
+
+    &:focus,
+    &:hover {
+      border-color: $highlight-color;
+      background-color: transparent;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .banner__title {
+    display: flex;
+    align-items: center;
+
+    h2 {
+      margin-left: 0.5rem;
+      padding-left: 0.8rem;
+      border-left: 1px solid #fff;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .banner {
+    padding: 3rem 6rem;
+  }
+
+  .banner--green {
+    background: #1e3a45 url("../../assets/img/banner.webp") no-repeat right;
+    background-size: contain;
+  }
+
+  .banner--gray {
+    background: #21242a url("../../assets/img/banner2.webp") no-repeat right;
+    background-size: contain;
+  }
+
+  .banner__description {
+    padding: 2rem 0;
+  }
+
+  .banner__details {
+    span {
+      font-size: 2rem;
+    }
+  }
+}
