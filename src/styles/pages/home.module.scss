@@ -19,26 +19,26 @@
   flex-wrap: wrap;
   padding-top: 1rem;
   gap: 0.5rem;
-}
 
-button.filter__button {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  color: #4f586d;
-  background-color: #f8f8f8;
-  padding: 0.2rem;
-  border-radius: calc($border-radius / 2);
-  transition: filter 0.3s ease-in-out;
+  button.filter__button {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: #4f586d;
+    background-color: #f8f8f8;
+    padding: 0.2rem;
+    border-radius: calc($border-radius / 2);
+    transition: filter 0.3s ease-in-out;
 
-  &:hover {
-    filter: brightness(0.8);
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    &.active {
+      background-color: $highlight-color;
+      color: #fff;
+    }
   }
-}
-
-button.active {
-  background-color: $highlight-color;
-  color: #fff;
 }
 
 .wrapper {
@@ -73,18 +73,18 @@ button.active {
     padding-top: 0;
     gap: 0;
     justify-content: center;
-  }
 
-  button.filter__button {
-    flex-direction: column;
-    justify-content: center;
-    width: 7rem;
-    height: 4rem;
-    border-radius: 0;
-    border-right: 0.5px solid #ebe7e7;
+    button.filter__button {
+      flex-direction: column;
+      justify-content: center;
+      width: 7rem;
+      height: 4rem;
+      border-radius: 0;
+      border-right: 0.5px solid #ebe7e7;
 
-    svg {
-      font-size: 1.2rem;
+      svg {
+        font-size: 1.2rem;
+      }
     }
   }
 }

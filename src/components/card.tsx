@@ -1,18 +1,29 @@
-import styles from "../styles/components/card.module.scss";
+import { useNavigate } from "react-router-dom";
 import { AppMiner } from "../shared/types/appMiner";
 import { icons } from "../shared/utils/icons";
-import { Link } from "react-router-dom";
+import { useDetailsContext } from "../context/details";
+import styles from "../styles/components/card.module.scss";
 
 interface Props {
   app: AppMiner;
 }
 
 export function Card({ app }: Props) {
+  const { changeCurrentApp } = useDetailsContext();
+
+  const navigate = useNavigate();
+
   const url = app.category
     .toLowerCase()
     .normalize("NFD")
     .replaceAll(" ", "-")
     .replace(/[:'?!()/.,;\u0300-\u036f]/g, "");
+
+  function handleAppSelection() {
+    changeCurrentApp(app);
+    navigate(url);
+  }
+
   return (
     <div className={styles.card}>
       <h3 className={styles.card__title}>
@@ -26,7 +37,9 @@ export function Card({ app }: Props) {
             currency: "BRL",
           })}
         </span>
-        <Link to={url}>Saiba mais</Link>
+        <button className={styles.card__button} onClick={handleAppSelection}>
+          Saiba mais
+        </button>
       </div>
     </div>
   );

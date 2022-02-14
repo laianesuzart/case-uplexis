@@ -1,10 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link } from "react-router-dom";
+import { useDetailsContext } from "../context/details";
 import "../styles/components/banner.scss";
 import logo from "../assets/img/upminer.png";
+import { AppMiner } from "../shared/types/appMiner";
 
 export function Banner() {
+  const { changeCurrentApp } = useDetailsContext();
+
+  const navigate = useNavigate();
+
   const apps = [
     {
       id: 1,
@@ -31,6 +37,11 @@ export function Banner() {
   };
 
   const bannerStyle = ["banner--green", "banner--gray"];
+
+  function handleAppSelection(app: AppMiner) {
+    changeCurrentApp(app);
+    navigate("historico-empresarial");
+  }
 
   return (
     <Carousel
@@ -59,7 +70,12 @@ export function Banner() {
                   minimumFractionDigits: 2,
                 })}
               </span>
-              <Link to="historico-empresarial">Saiba mais</Link>
+              <button
+                className="banner__button"
+                onClick={() => handleAppSelection(app)}
+              >
+                Saiba mais
+              </button>
             </div>
           </div>
         </div>

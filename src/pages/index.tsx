@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
 import { FaGlobe } from "react-icons/fa";
-import styles from "../../styles/pages/home.module.scss";
-import { apps } from "../../shared/utils/mockedApps";
-import { icons } from "../../shared/utils/icons";
-import { Card } from "../../components/card";
+import styles from "../styles/pages/home.module.scss";
+import { apps } from "../shared/utils/mockedApps";
+import { icons } from "../shared/utils/icons";
+import { Card } from "../components/card";
 
 export function Home() {
   const [displayedApps, setDisplayedApps] = useState(apps);

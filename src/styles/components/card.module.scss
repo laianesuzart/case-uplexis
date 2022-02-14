@@ -35,7 +35,7 @@
   color: #fff;
   border-radius: 0 0 $border-radius $border-radius;
 
-  a {
+  .card__button {
     color: #fff;
     font-weight: 700;
     position: relative;
@@ -43,9 +43,9 @@
     &::before {
       content: "";
       position: absolute;
-      left: 0;
+      left: 0.4rem;
       bottom: 0;
-      right: 0;
+      right: 0.4rem;
       height: 0.025rem;
       background-color: #fff;
       transform: scaleX(0);
