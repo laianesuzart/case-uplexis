@@ -2,10 +2,12 @@ $themes: (
   light: (
     color-background: #fff,
     color-text: #4f586d,
+    color-scheme: light
   ),
   dark: (
     color-background: #023060,
     color-text: #fff,
+    color-scheme: dark
   ),
 );
 
@@ -44,6 +46,7 @@ h6 {
 body {
   @include theme("background-color", "color-background");
   @include theme("color", "color-text");
+  @include theme("color-scheme", "color-scheme");
   font-family: "Open Sans", sans-serif;
   transition: color, background 0.3s ease-in-out;
 }

@@ -4,11 +4,14 @@ import {
   ReactNode,
   useState,
   useEffect,
+  useMemo,
 } from "react";
 
+type Theme = "light" | "dark";
+
 interface ThemeContextData {
-  currentTheme: "light" | "dark";
-  changeTheme: (theme: "light" | "dark") => void;
+  currentTheme: Theme;
+  changeTheme: (theme: Theme) => void;
 }
 
 interface ThemeProviderProps {
@@ -17,31 +20,44 @@ interface ThemeProviderProps {
 
 const ThemeContext = createContext({} as ThemeContextData);
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [currentTheme, setCurrentTheme] = useState<"light" | "dark">(() => {
+function prefersDarkScheme() {
+  if (!window.matchMedia) {
+    return false;
+  }
+  const { matches } = window.matchMedia("(prefers-color-scheme: dark)");
+  return matches;
+}
+
+export function ThemeProvider({ children }: Readonly<ThemeProviderProps>) {
+  const [currentTheme, setCurrentTheme] = useState<Theme>(() => {
     const theme = localStorage.getItem("theme");
     if (theme) {
-      return JSON.parse(theme);
+      return theme as Theme;
     }
+    if (prefersDarkScheme()) return "dark";
     return "light";
   });
 
-  function changeTheme(theme: "light" | "dark") {
+  function changeTheme(theme: Theme) {
     if (theme !== currentTheme) {
-      document.documentElement.className = `theme-${theme}`;
-      localStorage.setItem("theme", JSON.stringify(theme));
       setCurrentTheme(theme);
     }
   }
 
+  const values = useMemo(() => {
+    return {
+      currentTheme,
+      changeTheme,
+    };
+  }, [currentTheme]);
+
   useEffect(() => {
     document.documentElement.className = `theme-${currentTheme}`;
-  });
+    localStorage.setItem("theme", currentTheme);
+  }, [currentTheme]);
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, changeTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
   );
 }
 
