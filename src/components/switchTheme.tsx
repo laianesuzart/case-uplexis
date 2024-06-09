@@ -5,20 +5,27 @@ import styles from "../styles/components/switchTheme.module.scss";
 export function SwitchTheme() {
   const { currentTheme, changeTheme } = useThemeContext();
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const theme = e.target.checked ? "light" : "dark";
+    changeTheme(theme);
+  };
+
+  const lightTheme = currentTheme === "light";
+
   return (
-    <div className={styles.container}>
-      <BiSun
-        style={{
-          color: currentTheme === "dark" ? "gray" : "rgb(238, 176, 6)",
-        }}
-        onClick={() => changeTheme("light")}
+    <label
+      className={`${styles.container} ${lightTheme ? "" : styles.darkScheme}`}
+      aria-label="Alterar tema"
+    >
+      <input
+        type="checkbox"
+        checked={lightTheme}
+        onChange={handleChange}
+        className={styles.checkbox}
       />
-      <BiMoon
-        style={{
-          color: currentTheme === "light" ? "gray" : "rgb(97, 16, 190)",
-        }}
-        onClick={() => changeTheme("dark")}
-      />
-    </div>
+      <BiSun aria-hidden="true" />
+      <BiMoon aria-hidden="true" />
+      <span className={styles.toggle} />
+    </label>
   );
 }
