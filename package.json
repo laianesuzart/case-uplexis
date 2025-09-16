@@ -21,7 +21,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "sass": "^1.49.7",
     "typescript": "^5.2.2",
-    "vite": "^5.4.19"
+    "vite": "^5.4.20"
   },
   "overrides": {
     "esbuild": "0.25.0"
